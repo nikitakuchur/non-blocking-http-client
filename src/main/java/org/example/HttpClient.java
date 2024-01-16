@@ -34,8 +34,7 @@ public class HttpClient implements AutoCloseable {
         try {
             parsedUrl = new URL(url);
         } catch (MalformedURLException e) {
-            log.error("The provided URL is not correct.", e);
-            throw new IllegalArgumentException(e);
+            throw new IllegalArgumentException("The provided URL is not correct.");
         }
 
         if (!"http".equals(parsedUrl.getProtocol())) {

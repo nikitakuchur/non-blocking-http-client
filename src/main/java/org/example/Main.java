@@ -7,7 +7,7 @@ import java.util.Deque;
 import java.util.List;
 
 /**
- * This is a simple program that sends http requests to a list of urls in a non-blocking manner.
+ * This is a simple program that sends HTTP requests to a list of URLs in a non-blocking manner.
  */
 @Log4j2
 public class Main {
