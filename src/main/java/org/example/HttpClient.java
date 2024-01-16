@@ -1,6 +1,5 @@
 package org.example;
 
-import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 
 import java.io.IOException;
@@ -101,10 +100,14 @@ public class HttpClient implements AutoCloseable {
                 "\n";
     }
 
-    @SneakyThrows
     @Override
     public void close() {
-        selector.close();
+        try {
+            selector.close();
+        } catch (IOException e) {
+            log.error("An exception occurred while closing the selector", e);
+            throw new RuntimeException(e);
+        }
     }
 
     private record Attachment(
